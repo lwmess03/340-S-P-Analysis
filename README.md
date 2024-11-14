@@ -19,4 +19,4 @@ Narrowed Down Questions
 2. How does the month of November react after the election? 
     This question is interesting because we want to know if easing political unrest increases performance for a time being.
 3. What are the pre-election trends that are common in the months leading up to the election?
-    We want to know if the campaign improves or degrees in the months prior to the election.
+    We want to know if the campaign improves or digresses in the months prior to the election.
