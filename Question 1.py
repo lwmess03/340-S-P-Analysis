@@ -127,7 +127,7 @@ variance = []
 for i in range(0, len(end_value)):
     difference = end_value[i] - open_value[i]
     variance.append(difference)
-print(variance)
+#print(variance)
 
 
 ## just the variance in election years
@@ -142,8 +142,8 @@ for i in range(0,len(variance)):
 for i in range(0, len(elec_variance)):
     if i % 2 == 0:
         pres_variance.append(elec_variance[i])
-print('pres' + '\n',pres_variance)
-print('off' + '\n',off_variance)
+##print('pres' + '\n',pres_variance)
+##print('off' + '\n',off_variance)
 
 ## create a vector for the years before election
 before_variance = []
@@ -156,8 +156,8 @@ for i in range(0,len(off_variance)):
         before_variance.append(off_variance[i])
 after_variance.append(0)
 
-print('before' + '\n', before_variance)
-print('after' + '\n', after_variance)
+##print('before' + '\n', before_variance)
+##print('after' + '\n', after_variance)
 
 
 ## off_variance has the variance in years next to presidential elections.
@@ -179,21 +179,26 @@ comp_after = []
 #print(len(before_variance))
 #print(len(after_variance))
 #print(len(pres_variance))
+P_Year_Before = []
+P_Year_After = []
 
 # this creates vectors with 1 and -1s, a -1 means the election year had the lower closing value and the 1 means the
 # election year had the higher value
-for i in range(0, len(before_variance)):
+for i in range(1, len(before_variance)): ## getting rid of the year before 1928
     if before_variance[i] < pres_variance[i]:
         comp_before.append(1)
+        P_Year_Before.append(i)
     elif before_variance[i] > pres_variance[i]:
         comp_before.append(-1)
+for i in range(0, len(after_variance) - 1): ## getting rid on 2024 because no year after
     if after_variance[i] < pres_variance[i]:
         comp_after.append(1)
+        P_Year_After.append(i)
     elif after_variance[i] > pres_variance[i]:
         comp_after.append(-1)
 
-print('before' + '\n', comp_before)
-print('after' + '\n', comp_after)
+##print('before' + '\n', comp_before)
+##print('after' + '\n', comp_after)
 
 ## count the number of times the election year was greater for each condition
 greater_before = 0
@@ -210,5 +215,40 @@ for i in comp_after:
         greater_after = greater_after + 1
     else:
         lower_after = lower_after + 1
-print(greater_before , '/', len(comp_before))
-print(greater_after ,'/', len(comp_after))
+print('The total number of years where the S&P preformed better on election year than '
+      'the year prior is: ', greater_before , '/', len(Pres_elecs) - 1)
+print('The total number of years where the S&P preformed better on election year than '
+      'the year after is:', greater_after ,'/', len(Pres_elecs) - 1, '\n')
+
+P_YearB = []
+P_YearA = []
+## Figuring out which years preformed better
+for i in range(0, len(Pres_elecs)):
+    for index in P_Year_Before:
+        if i == index:
+            P_YearB.append(Pres_elecs[i])
+for i in range(0, len(Pres_elecs)):
+    for index in P_Year_After:
+        if i == index:
+            P_YearA.append(Pres_elecs[i])
+
+print('The election years that preformed better than the year prior were:')
+print(P_YearB, '\n')
+print('The election years that preformed better than the year after were:')
+print(P_YearA, '\n')
+
+if greater_before > len(comp_before)/2:
+    print('In general the presidential election year has a HIGHER S&P return than the years prior, positive impact')
+elif greater_before < len(comp_before)/2:
+    print('In general the presidential election year has a LOWER S&P return than the years prior, negative impact')
+elif greater_before == len(comp_before):
+    print('In general the presidential election year has the SAME S&P return than the years prior, no impact')
+
+if greater_after > len(comp_after):
+    print('In general the presidential election year has a HIGHER S&P return than the years after, positive impact')
+elif greater_after < len(comp_after):
+    print('In general the presidential election year has a LOWER S&P return than the years after, negative impact')
+elif greater_after == len(comp_after):
+    print('In general the presidential election year has a the SAME S&P return than the years prior, no impact')
+
+
