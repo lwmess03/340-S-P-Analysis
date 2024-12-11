@@ -249,7 +249,7 @@ plt.ylabel('Variance')
 plt.title('S&P 500 Variances: Before, During, and After Elections')
 plt.legend()
 plt.grid(True)
-
+#change to work
 # Show the plot
 plt.tight_layout()
 plt.show()
