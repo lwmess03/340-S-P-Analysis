@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from fontTools.merge.util import first
 from matplotlib.pyplot import xlabel
-from numpy.ma.core import greater
 
 # 1. How does the presidential election affect the general trend of the S&P 500 compared to the years surrounding it?
 
@@ -112,7 +110,7 @@ for day in last_occur:
 
 ##print(last_index)
 
-## Create an array with the opening value for each year
+## Create an array with the closing value for each year
 end_value = []
 for index in last_index:
     end_value.append(closing_value[index - 2])
