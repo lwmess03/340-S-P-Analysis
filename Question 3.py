@@ -55,7 +55,7 @@ october_percent_changes = []
 
 
 for year in Pres_elecs:
-    # Go through year and store all days of specific months
+    # Create a range of dates for the days in specific months (January, August, September, October)
     january_dates = pd.date_range(start=f'{year}-01-01', end=f'{year}-01-31')
     august_dates = pd.date_range(start=f'{year}-08-01', end=f'{year}-08-31')
     september_dates = pd.date_range(start=f'{year}-09-01', end=f'{year}-09-30')

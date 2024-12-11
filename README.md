@@ -20,7 +20,8 @@
     - The main programs written to analyze the data are called Question 1, Question 2, and Question 3 
 
 4. A tutorial/walkthrough of how to operate the code
-    - Please see comments of how to operate code inside programs, also the submitted walkthrough on canvas
+    - [Watch the video](https://drive.google.com/file/d/1e-91F7QiARxYRfyp17HcTkgyOF2GT0S0/view?usp=drive_link)
+
 
 5. A sample of results from the analysis
    - Sample results from Question 1
