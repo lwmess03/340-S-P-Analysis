@@ -237,6 +237,23 @@ print(P_YearB, '\n')
 print('The election years that preformed better than the year after were:')
 print(P_YearA, '\n')
 
+
+# Plot the vectors
+plt.figure(figsize=(12, 6))
+plt.plot(Pres_elecs, before_variance, label='Before Election', marker='o')
+plt.plot(Pres_elecs, pres_variance, label='Election', marker='x')
+plt.plot(Pres_elecs, after_variance, label='After Election', marker='o')
+
+plt.xlabel('Year')
+plt.ylabel('Variance')
+plt.title('S&P 500 Variances: Before, During, and After Elections')
+plt.legend()
+plt.grid(True)
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+
 if greater_before > len(comp_before)/2:
     print('In general the presidential election year has a HIGHER S&P return than the years prior, positive impact')
 elif greater_before < len(comp_before)/2:
