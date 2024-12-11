@@ -3,14 +3,13 @@
 
 import pandas as pd
 import numpy as np
-from scipy.stats import norm, chisquare, ttest_ind, ttest_1samp
 import matplotlib.pyplot as plt
 
 # Create a filepath
 path_to_file = 'Macrotrends-s-p-500-index-daily.csv'
 
 # Load data
-data = pd.read_csv(path_to_file, skiprows = 9, delimiter= ',' )
+data = pd.read_csv(path_to_file,  delimiter= ',' )
 data['Date'] = pd.to_datetime(data['Date'])
 
 # Create Vectors for each column

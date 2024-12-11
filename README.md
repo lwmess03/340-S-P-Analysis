@@ -2,15 +2,6 @@
 
 <<<<<<< HEAD
 =======
-**HELLO**
-
-- The general/topic and challenge the code addresses
-- A list of any required dependencies and additional programs
-- The main programs written to analyze the data
-- A tutorial/walkthrough of how to operate the code
-- A sample of results from the analysis
-- Any limitations on running the program
-- A brief discussion of future results.
 
 1. The general/topic and challenge the code addresses
     - The topic of this code is trying to get meaningful information from S&P Data 
@@ -23,7 +14,7 @@
             We want to know if the campaign improves or digresses in the months prior to the election.
       
 2. A list of any required dependencies and additional programs
-    - None
+    - The required dependencies are Numpy, Matplotlib, Pandas.
 
 3. The main programs written to analyze the data
     - The main programs written to analyze the data are called Question 1, Question 2, and Question 3 
@@ -32,15 +23,18 @@
     - Please see comments of how to operate code inside programs, also the submitted walkthrough on canvas
 
 5. A sample of results from the analysis
-    - Sample results from Question 1
-        
+   - Sample results from Question 1
+        ![Alt text](Question_1_Sample_Graph.png)
+   - Sample results from Question 2
+        ![Alt text](Question_2_Sample_Graph.png)
    - Sample results from Question 3 
-        ![Alt text](Sample_Graph.png)
+        ![Alt text](Question_3_Sample_Graph.png)
 
 6. Any limitations on running the program
     - No limitations
 
 7. A brief discussion of future results.
-    - The results of this analysis is that there are not a lot of consistent trends to get when looking at 
+    - The results of this analysis is that there are not a lot of consistent trends to see when looking at S&P values with the election
+
 
 
