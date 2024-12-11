@@ -1,7 +1,5 @@
 # 340-S-P-Analysis
 
-<<<<<<< HEAD
-=======
 
 1. The general/topic and challenge the code addresses
     - The topic of this code is trying to get meaningful information from S&P Data 
