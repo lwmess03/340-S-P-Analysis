@@ -71,60 +71,44 @@ november_non_election_year_closing_value = non_election_year_november_data['Clos
 november_non_election_year_date = non_election_year_november_data['Date']
 
 #Create plot comparing november election year and non election year data
-plt.plot(november_non_election_year_closing_value, november_non_election_year_date, label = 'November Non Election Year')
-plt.plot(november_election_year_closing_value, november_election_year_date, label = 'November Election Year')
+plt.figure(figsize=(12, 6))
+plt.scatter(november_non_election_year_date, november_non_election_year_closing_value, label='November Non Election Year')
+plt.scatter(november_election_year_date, november_election_year_closing_value, label='November Election Year')
 plt.title('Non Election and Election Years November S&P Graph')
-plt.xlabel('Closing Value')
-plt.ylabel('Date')
+plt.xlabel('Date')
+plt.ylabel('Closing Value')  # Y-axis is now Closing Value
 plt.legend()
 plt.show()
 
-#Perform a T-test
-t_stat, p_value = ttest_ind(november_election_year_closing_value, november_non_election_year_closing_value)
-if p_value < 0.05:
-    print("There is a statistical difference between novembers in non election years and election years")
-else:
-    print("There is not a statistical difference between novembers in non election years and election years")
 
 #Take average of november election year closing value data
 election_november_average_closing_value = np.average(november_election_year_closing_value)
 print("The closing value average for election year novembers are ", election_november_average_closing_value)
 
-#Take std of november election year closing value data
-election_november_std_closing_value = np.std(november_election_year_closing_value)
-print("The closing value standard deviation for election year novembers are ", election_november_std_closing_value)
-
 #Take average of november non election year closing value data
 non_election_november_average_closing_value = np.average(november_non_election_year_closing_value)
 print("The closing value average for non election year novembers are ", non_election_november_average_closing_value)
-
-#Take std of november non election year closing value data
-non_election_november_std_closing_value = np.std(november_non_election_year_closing_value)
-print("The closing value standard deviation for non election year novembers are ", non_election_november_std_closing_value)
 
 #Take the percent change between averages
 percent_change_averages = ((election_november_average_closing_value - non_election_november_average_closing_value)/non_election_november_average_closing_value)*100
 print("The percent change from average election year novembers and non election year novembers is ", percent_change_averages)
 
-#Take the percent change between stds
-percent_change_std = ((election_november_std_closing_value - non_election_november_std_closing_value)/non_election_november_std_closing_value)*100
-print("The percent change from standard deviation election year novembers and non election year novembers is ", percent_change_std)
-
 
 #Function to find percent change of closed value data
-daily_percent_change = closed_value.pct_change()*100
+# Calculate percent change
+november_election_year_percent_changes = november_election_year_closing_value.pct_change() * 100
+november_non_election_year_percent_changes = november_non_election_year_closing_value.pct_change() * 100
 
-#Only include percent change data on november election year
-november_election_year_percent_changes = daily_percent_change[november_election_year_closing_value.index]
+november_election_years = november_election_year_date.dt.year
+november_non_election_years = november_non_election_year_date.dt.year
 
-#Only include percent change data on november non election year
-november_non_election_year_percent_changes = daily_percent_change[november_non_election_year_closing_value.index]
+# Create a plot with both series on the same plot
 
-#Create plot comparing november election percent change and non election year percent change
-plt.plot(november_election_year_percent_changes, label = 'November Election Years')
-plt.plot(november_non_election_year_percent_changes, label = 'November Non Election Years')
-plt.title('Daily Percent Changed in November')
-plt.xlabel('Closing Value')
-plt.ylabel('Daily Percent Change')
+plt.plot(november_election_years, november_election_year_percent_changes, label='November Election Years', marker='o', markersize = 3)
+plt.plot(november_non_election_years, november_non_election_year_percent_changes, label='November Non-Election Years', marker='o',markersize = 3)
+plt.title('Daily Percent Change in November (Election vs. Non-Election Years)')
+plt.xlabel('Year')
+plt.ylabel('Daily Percent Change (%)')
 plt.legend()
+plt.grid(True)
 plt.show()
